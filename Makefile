@@ -6,7 +6,7 @@
 #    By: diosanto <diosanto@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:39:10 by diosanto          #+#    #+#              #
-#    Updated: 2023/05/04 19:35:14 by diosanto         ###   ########.fr        #
+#    Updated: 2023/05/11 15:29:18 by diosanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror #-g -fsanitize=address
 RM		= rm -f
 
-SRCS 	=	pipex.c
+SRCS 	=	pipex.c				\
+			error_handling.c	\
 
 OBJS	= $(SRCS:c=o)
 
