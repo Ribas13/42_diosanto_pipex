@@ -6,7 +6,7 @@
 /*   By: diosanto <diosanto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:38:49 by diosanto          #+#    #+#             */
-/*   Updated: 2023/05/11 15:31:04 by diosanto         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:42:46 by diosanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ void	ft_pipex(char **av, char **envp)
 		error_handling(2);
 	if (!pipe_id)
 		first_file(envp, av, pipe_id);
+	wait(0);
+	pipe_id = fork();
+	if (pipe_id < 0)
+		error_handling(2);
+	if (!pipe_id)
+		second(envp, av, pipe_id);
+	close(pipe_id[1]);
+	close(pipe_id[0]);
+	wait(0);
 }
 
 /* Check for the correct number of arguments and if correct, enter ft_pipex */
