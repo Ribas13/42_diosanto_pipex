@@ -6,7 +6,7 @@
 #    By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:39:10 by diosanto          #+#    #+#              #
-#    Updated: 2023/05/16 16:55:32 by ribs             ###   ########.fr        #
+#    Updated: 2023/05/17 15:46:56 by ribs             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS 	=	pipex.c					\
 			UTILS/ft_split.c		\
 			UTILS/ft_strncmp.c		\
 			UTILS/triple_strjoin.c	\
+			pipex_utils.c
 
 OBJS	= $(SRCS:c=o)
 

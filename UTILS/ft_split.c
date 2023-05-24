@@ -6,13 +6,40 @@
 /*   By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:14:06 by diosanto          #+#    #+#             */
-/*   Updated: 2023/05/16 16:55:06 by ribs             ###   ########.fr       */
+/*   Updated: 2023/05/17 15:28:30 by ribs             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	j = start;
+	if (start > ft_strlen(s))
+	{
+		str = malloc(sizeof(char));
+		*str = 0;
+		return (str);
+	}
+	if (len >= ft_strlen(s))
+		len = ft_strlen(s) - start;
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
+	while (j < ft_strlen(s) && i < len)
+		str[i++] = s[j++];
+	str[i] = '\0';
+	return (str);
+}
 
 static int	word_size(char const *s, char c, size_t i)
 {

@@ -6,11 +6,25 @@
 /*   By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:17:01 by ribs              #+#    #+#             */
-/*   Updated: 2023/05/16 17:03:41 by ribs             ###   ########.fr       */
+/*   Updated: 2023/05/17 15:39:52 by ribs             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	get_free(char **list)
+{
+	int	i;
+
+	i = 0;
+	if (list)
+	{
+		while (list[i])
+			free(list[i++]);
+		free(list);
+	}
+}
+
 /* **This function takes two parameters, envp is an array of strings
 representing the environment variables, and command, which is a string
 representing the command for which the path is to be found.* 
@@ -20,7 +34,7 @@ access function with the F_OK flag. If it exists, the function returns the
 'command' itself, since it already contains the full path.
 
 2. */
-char	*getpath(char **envp, char *command)
+char	*get_path(char **envp, char *command)
 {
 	int		i;
 	char	**paths;

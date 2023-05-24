@@ -6,13 +6,13 @@
 /*   By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:53:33 by ribs              #+#    #+#             */
-/*   Updated: 2023/05/16 16:56:58 by ribs             ###   ########.fr       */
+/*   Updated: 2023/05/17 17:06:09 by ribs             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(char const *str)
 {
 	int	i;
 
