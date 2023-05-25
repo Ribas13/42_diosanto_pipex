@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: diosanto <diosanto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:38:49 by diosanto          #+#    #+#             */
-/*   Updated: 2023/05/22 19:37:47 by ribs             ###   ########.fr       */
+/*   Updated: 2023/05/25 17:51:56 by diosanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ void	child_one(int infile, char **av, char **envp, int *pipe_end)
 	char	**cmd_name;
 
 	close(pipe_end[0]);
-	if (infile < 0)
-		error_handling(3);
 	if (dup2(infile, STDIN_FILENO) < 0)
 		error_handling(6);
 	if (dup2(pipe_end[1], STDOUT_FILENO) < 0)
@@ -115,8 +113,6 @@ void	child_two(int outfile, char **av, char **envp, int *pipe_end)
 	char	**cmd_name;
 
 	close(pipe_end[1]);
-	if (outfile < 0)
-		error_handling(4);
 	if (dup2(outfile, STDOUT_FILENO) < 0)
 		error_handling(6);
 	if (dup2(pipe_end[0], STDIN_FILENO) < 0)
@@ -129,7 +125,7 @@ void	child_two(int outfile, char **av, char **envp, int *pipe_end)
 	wait(0);
 }
 
-/* We divide the workload in two using two child processes, then we
+/* Divided the workload in two using two child processes, then
 wait for those processes to finish */
 void	ft_pipex(int infile, int outfile, char **av, char **envp)
 {
@@ -168,7 +164,11 @@ int	main(int ac, char **av, char **envp)
 	if (ac == 5)
 	{
 		infile = open(av[1], O_RDONLY);
+		if (infile < 0)
+			error_handling(3);
 		outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (outfile < 0)
+			error_handling(4);
 		if (infile < 0 || outfile < 0)
 			error_handling(0);
 		ft_pipex(infile, outfile, av, envp);

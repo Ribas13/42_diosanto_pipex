@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: diosanto <diosanto@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 15:09:58 by diosanto          #+#    #+#             */
-/*   Updated: 2023/05/17 15:17:50 by ribs             ###   ########.fr       */
+/*   Updated: 2023/05/25 17:52:13 by diosanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	error_handling(int error)
 		perror("Path not found");
 	if (error == 6)
 		perror("Error related to dup2");
+	exit(1);
 }
