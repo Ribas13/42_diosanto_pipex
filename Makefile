@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ribs <ribs@student.42.fr>                  +#+  +:+       +#+         #
+#    By: diosanto <diosanto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 15:39:10 by diosanto          #+#    #+#              #
-#    Updated: 2023/05/17 15:46:56 by ribs             ###   ########.fr        #
+#    Updated: 2023/05/25 13:55:25 by diosanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= pipex
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 RM		= rm -f
 
 SRCS 	=	pipex.c					\
